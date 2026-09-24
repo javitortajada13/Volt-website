@@ -11,6 +11,9 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 - Territory: Thailand (primary); ships to Singapore, Malaysia and Vietnam.
 - Based at Sterling Padel Bangkok, Sukhumvit Soi 24.
 - Sales model: no online payment. The customer browses, messages on WhatsApp, and Javi confirms and arranges delivery.
+- Payment: bank transfer or PromptPay to Javi's **personal** account. There is no registered company, so the site must never mention invoices, VAT/tax receipts or a company name ("Co., Ltd" etc.).
+- Delivery times (confirmed): Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted case by case.
+- Status: not published yet. Don't set up the domain or deploy until Javi says so.
 - WhatsApp: +34 696 814 841 (`wa.me/34696814841`)
 - Instagram: @javipadelbalance
 
@@ -22,7 +25,7 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 | V600  | Control   | Round    | ฿12,500   |
 | V1000 | Power     | Diamond  | ฿13,500   |
 
-Prices are in Thai baht only. They are higher than voltpadel.com's euro prices because they include import shipping, duties and taxes, so never show euro prices on the site. All prices include Bangkok delivery. SEA shipping is extra. Competitor reference: quad-sports.com top model at ฿16,669; Volt is positioned below that.
+Prices are in Thai baht only. They are higher than voltpadel.com's euro prices because they include import shipping and duties, so never show euro prices on the site. All prices include Bangkok delivery. SEA shipping is extra. Competitor reference: quad-sports.com top model at ฿16,669; Volt is positioned below that.
 
 ## Tech stack
 
