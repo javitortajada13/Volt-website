@@ -22,12 +22,12 @@
       --volt-deep: #E0CA00;
       --ink: #111111;
       --ink-soft: #4a4a4a;
-      --muted: #8a8a8a;
+      --muted: #6b6b6b;
       --line: #e8e8e8;
       --cream: #F5F2E6;
       --paper: #ffffff;
-      --wa: #25D366;
-      --wa-deep: #1DA851;
+      --wa: #128C7E;
+      --wa-deep: #0B6B52;
       --heading: "Barlow Condensed", "DIN Condensed", "Arial Narrow", sans-serif;
       --body: "Barlow", "DIN 2014", "Helvetica Neue", Arial, sans-serif;
       --gutter: 16px;
@@ -42,20 +42,14 @@
       -webkit-font-smoothing: antialiased;
     }
     img { max-width: 100%; display: block; }
+    ::selection { background: var(--volt); color: var(--ink); }
+    html { scrollbar-color: #c9c9c9 transparent; accent-color: var(--ink); }
+    a { text-underline-offset: .2em; }
     a { color: inherit; }
     .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
     @media (min-width: 768px) { :root { --gutter: 32px; } }
 
     /* Type */
-    .eyebrow {
-      font-family: var(--heading); font-weight: 500; font-size: 13px;
-      letter-spacing: .35em; text-transform: uppercase; color: var(--ink-soft);
-      margin: 0 0 16px;
-    }
-    .eyebrow::before {
-      content: ""; display: inline-block; width: 24px; height: 2px;
-      background: var(--volt); vertical-align: middle; margin-right: 12px;
-    }
     h1, h2, h3 {
       font-family: var(--heading); font-weight: 300; text-transform: uppercase;
       letter-spacing: .18em; line-height: 1.1; margin: 0;
@@ -116,7 +110,7 @@
     }
 
     /* 2. Hero */
-    .hero { position: relative; overflow: hidden; padding: 40px 0 56px; }
+    .hero { position: relative; overflow: hidden; padding: 16px 0 48px; }
     .hero-grid { display: grid; gap: 24px; align-items: center; }
     .hero h1 { font-size: clamp(40px, 11vw, 88px); letter-spacing: .14em; }
     .hero h1 .hl { position: relative; white-space: nowrap; }
@@ -131,10 +125,13 @@
     .hero-media::before {
       content: ""; position: absolute; inset: 8% 4% 4%; background: var(--cream); border-radius: 50%;
     }
-    .hero-media img { position: relative; width: min(100%, 520px); height: auto; }
+    .hero-media { order: -1; }
+    .hero-media img { position: relative; width: auto; height: min(42vh, 340px); }
+    .hero-media::before { inset: 0; margin: auto; width: min(40vh, 320px); height: min(40vh, 320px); }
     .hero-note {
-      margin-top: 20px; font-size: 13px; color: var(--muted); letter-spacing: .02em;
+      margin: 20px 0 0; font-size: 14px; color: var(--muted); max-width: 440px;
     }
+    .num, .price-thb { font-variant-numeric: tabular-nums lining-nums; }
     @media (min-width: 560px) {
       .hero-ctas { flex-direction: row; }
       .hero-ctas .btn { width: auto; }
@@ -142,6 +139,9 @@
     @media (min-width: 900px) {
       .hero { padding: 64px 0 96px; }
       .hero-grid { grid-template-columns: 1.1fr 1fr; gap: 48px; }
+      .hero-media { order: 0; }
+      .hero-media::before { inset: 8% 4% 4%; margin: 0; width: auto; height: auto; }
+      .hero-media img { width: min(100%, 520px); height: auto; }
     }
 
     /* 3. Shipping bar */
@@ -227,25 +227,22 @@
     .about-grid { display: grid; gap: 48px; align-items: center; }
     @media (min-width: 900px) { .about-grid { grid-template-columns: 1fr 1fr; gap: 80px; } }
     .about-copy p { color: var(--ink-soft); margin: 0 0 16px; }
-    .about-copy .lead { font-size: 19px; color: var(--ink); }
+    .about-copy .lead { font-size: 19px; color: var(--ink); margin-top: 24px; }
     .why { list-style: none; padding: 0; margin: 28px 0 0; display: grid; gap: 14px; }
     .why li { display: flex; gap: 14px; align-items: flex-start; font-size: 15px; }
     .why li::before {
       content: ""; flex: none; width: 10px; height: 10px; margin-top: 7px; background: var(--volt);
       transform: rotate(45deg);
     }
-    .stats { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--ink); }
-    .stat { padding: 28px 0 24px; border-bottom: 1px solid var(--line); }
-    .stat:nth-child(odd) { padding-right: 16px; border-right: 1px solid var(--line); }
-    .stat:nth-child(even) { padding-left: 20px; }
-    .stat b {
-      display: block; font-family: var(--heading); font-weight: 300; font-size: clamp(30px, 6vw, 46px); white-space: nowrap;
-      line-height: 1; letter-spacing: .04em;
+    .facts { margin: 0; border-top: 1px solid var(--ink); }
+    .facts div {
+      display: grid; grid-template-columns: 1fr 1.4fr; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line);
     }
-    .stat span {
-      display: block; margin-top: 10px; font-family: var(--heading); font-size: 13px; letter-spacing: .25em;
-      text-transform: uppercase; color: var(--ink-soft);
+    .facts dt {
+      font-family: var(--heading); font-weight: 500; font-size: 14px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--ink-soft); padding-top: 2px;
     }
+    .facts dd { margin: 0; font-size: 16px; }
 
     /* Coach program teaser (referral codes wired in JS, program not live yet) */
     .coach {
@@ -254,9 +251,10 @@
     }
     .coach h3 { font-size: 24px; letter-spacing: .22em; }
     .coach p { margin: 0; color: var(--ink-soft); }
+    .coach-copy { margin-top: 10px !important; max-width: 60ch; }
     .soon {
       display: inline-block; font-family: var(--heading); font-weight: 600; font-size: 11px; letter-spacing: .25em;
-      text-transform: uppercase; background: var(--volt); padding: 3px 8px 2px; margin-bottom: 12px;
+      text-transform: uppercase; background: var(--volt); padding: 3px 8px 2px; margin-left: 10px; vertical-align: middle;
     }
     @media (min-width: 768px) { .coach { grid-template-columns: 1fr auto; align-items: center; padding: 40px; } }
 
@@ -266,8 +264,7 @@
     .faq details { border-bottom: 1px solid var(--line); }
     .faq summary {
       list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
-      padding: 22px 0; font-family: var(--heading); font-weight: 500; font-size: 18px; letter-spacing: .12em;
-      text-transform: uppercase;
+      padding: 20px 0; font-family: var(--body); font-weight: 600; font-size: 17px; line-height: 1.4;
     }
     .faq summary::-webkit-details-marker { display: none; }
     .faq summary::after {
@@ -275,7 +272,7 @@
       transition: transform .2s;
     }
     .faq details[open] summary::after { transform: rotate(45deg); }
-    .faq details p { margin: 0 0 22px; color: var(--ink-soft); max-width: 680px; }
+    .faq details p { margin: -4px 0 22px; color: var(--ink-soft); max-width: 680px; }
 
     /* 8. Footer */
     .footer { background: var(--cream); padding: 64px 0 104px; }
@@ -283,11 +280,13 @@
     @media (min-width: 768px) { .footer-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
     .footer img { height: 32px; width: auto; margin-bottom: 16px; }
     .footer p { margin: 0; color: var(--ink-soft); font-size: 14px; }
-    .footer h4 {
-      margin: 0 0 16px; font-family: var(--heading); font-weight: 600; font-size: 13px; letter-spacing: .3em;
+    .foot-addr { margin-top: 8px !important; }
+    .footer .foot-h {
+      margin: 0 0 12px; line-height: 1.4; font-family: var(--heading); font-weight: 600; font-size: 13px; letter-spacing: .3em;
       text-transform: uppercase;
     }
-    .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 15px; }
+    .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; font-size: 15px; }
+    .footer li a { display: inline-flex; align-items: center; min-height: 40px; }
     .footer a { text-decoration: none; color: var(--ink-soft); }
     .footer a:hover { color: var(--ink); text-decoration: underline; text-decoration-color: var(--volt); text-decoration-thickness: 2px; }
     .footer-bottom {
@@ -305,12 +304,14 @@
     .fab svg { width: 30px; height: 30px; }
     @media (min-width: 768px) { .fab { right: 28px; bottom: 28px; } }
 
-    /* Scroll reveal */
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.in { opacity: 1; transform: none; }
+    /* One authored moment: the racket settles into the hero on load */
+    @keyframes settle { from { opacity: 0; transform: translateY(24px) rotate(-6deg) scale(.96); } to { opacity: 1; transform: none; } }
+    @keyframes disc { from { transform: scale(.7); opacity: 0; } to { transform: none; opacity: 1; } }
+    .hero-media img { animation: settle 1.1s cubic-bezier(.16,1,.3,1) .1s both; }
+    .hero-media::before { animation: disc 1.2s cubic-bezier(.16,1,.3,1) both; }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .reveal { opacity: 1; transform: none; transition: none; }
+      .hero-media img, .hero-media::before { animation: none; }
       .card-media img, .btn, .fab { transition: none; }
     }
     .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
@@ -345,8 +346,7 @@
     <!-- 2. Hero -->
     <section class="hero">
       <div class="wrap hero-grid">
-        <div class="reveal">
-          <p class="eyebrow">Official distributor · Thailand &amp; SEA</p>
+        <div>
           <h1>Unleash the <span class="hl">tension</span></h1>
           <p class="hero-sub">Premium padel rackets designed in Portugal, now in Bangkok. Choose your racket, message us on WhatsApp, and we'll deliver it to your door.</p>
           <div class="hero-ctas">
@@ -355,9 +355,9 @@
             </a>
             <a class="btn btn-ghost" href="#rackets">View rackets</a>
           </div>
-          <p class="hero-note">From ฿9,500 · Free delivery in Bangkok</p>
+          <p class="hero-note">Official Volt distributor for Thailand &amp; Southeast Asia · From <span class="num">฿9,500</span> · Free delivery in Bangkok</p>
         </div>
-        <div class="hero-media reveal">
+        <div class="hero-media">
           <img src="assets/v600.png" alt="Volt V600 padel racket, white round control racket" width="750" height="750" fetchpriority="high">
         </div>
       </div>
@@ -377,8 +377,7 @@
     <!-- 4. Rackets -->
     <section class="section" id="rackets">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">The range</p>
+        <div class="section-head">
           <h2>Choose your voltage</h2>
           <p>Three rackets, from maximum power to total control. All prices include delivery in Bangkok.</p>
         </div>
@@ -389,29 +388,28 @@
     <!-- 5. How to order -->
     <section class="section how" id="how">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">How to order</p>
-          <h2>Three steps</h2>
+        <div class="section-head">
+          <h2>How to order</h2>
           <p>No checkout, no card details online. You talk to a real person who plays padel.</p>
         </div>
         <ol class="steps">
-          <li class="step reveal">
+          <li class="step">
             <span class="step-num">01</span>
             <h3>Choose</h3>
             <p>Pick your racket: maximum power or pure control. Not sure? Ask us and we'll help you find the right one for your game.</p>
           </li>
-          <li class="step reveal">
+          <li class="step">
             <span class="step-num">02</span>
             <h3>WhatsApp</h3>
             <p>Tap the order button. Your message comes pre-filled with the model and price. We confirm stock and delivery details.</p>
           </li>
-          <li class="step reveal">
+          <li class="step">
             <span class="step-num">03</span>
             <h3>Receive</h3>
             <p>Free delivery in Bangkok, or collect at Sterling Padel, Sukhumvit Soi 24. We also ship across Thailand and to Singapore, Malaysia and Vietnam.</p>
           </li>
         </ol>
-        <div class="how-cta reveal">
+        <div class="how-cta">
           <a class="btn btn-wa" data-wa href="https://wa.me/34696814841" target="_blank" rel="noopener">
             <svg><use href="#i-wa"/></svg>Start your order
           </a>
@@ -423,10 +421,9 @@
     <section class="section" id="about">
       <div class="wrap">
         <div class="about-grid">
-          <div class="about-copy reveal">
-            <p class="eyebrow">About Volt</p>
+          <div class="about-copy">
             <h2>Why Volt Padel</h2>
-            <p class="lead" style="margin-top:24px">Volt Padel is a premium padel brand from Portugal, known for top-quality equipment and a design you won't see on every other court.</p>
+            <p class="lead">Volt Padel is a premium padel brand from Portugal, known for top-quality equipment and a design you won't see on every other court.</p>
             <p>Every racket is built for players who take their game seriously: carbon faces, a 3K carbon structure and a fast-recovery EVA core.</p>
             <ul class="why">
               <li>Carbon faces with an ultra 3D high-relief surface for grip and spin</li>
@@ -435,19 +432,20 @@
               <li>Local support in Bangkok from the official distributor</li>
             </ul>
           </div>
-          <div class="stats reveal">
-            <div class="stat"><b>PT</b><span>Designed in Portugal</span></div>
-            <div class="stat"><b>3</b><span>Models in Thailand</span></div>
-            <div class="stat"><b>38mm</b><span>Profile &amp; core</span></div>
-            <div class="stat"><b>345–370g</b><span>Weight range</span></div>
-          </div>
+          <dl class="facts">
+            <div><dt>Origin</dt><dd>Designed in Portugal</dd></div>
+            <div><dt>Range in Thailand</dt><dd>Volt 1000, 600 and 500 (v5)</dd></div>
+            <div><dt>Profile &amp; core</dt><dd>38mm</dd></div>
+            <div><dt>Weight</dt><dd>345–370g, depending on model</dd></div>
+            <div><dt>In the box</dt><dd>Premium cover and racket protector</dd></div>
+            <div><dt>Try before you buy</dt><dd>Demo rackets at Sterling Padel Bangkok</dd></div>
+          </dl>
         </div>
 
-        <div class="coach reveal" id="coaches">
+        <div class="coach" id="coaches">
           <div>
-            <span class="soon">Coming soon</span>
-            <h3>Coach program</h3>
-            <p style="margin-top:10px">Padel coaches in Thailand: get your own referral code and earn commission on every racket your players order.</p>
+            <h3>Coach program <span class="soon">Coming soon</span></h3>
+            <p class="coach-copy">Padel coaches in Thailand: get your own referral code and earn commission on every racket your players order.</p>
           </div>
           <a class="btn btn-ghost" data-wa data-wa-msg="Hi Javi, I'm a padel coach and I'm interested in the Volt coach program." href="https://wa.me/34696814841" target="_blank" rel="noopener">
             Register interest
@@ -459,11 +457,10 @@
     <!-- 7. FAQ -->
     <section class="section faq" id="faq">
       <div class="wrap">
-        <div class="section-head reveal">
-          <p class="eyebrow">FAQ</p>
+        <div class="section-head">
           <h2>Questions</h2>
         </div>
-        <div class="faq-list reveal">
+        <div class="faq-list">
           <details>
             <summary>How long does delivery take?</summary>
             <p>In Bangkok we usually deliver within 1–2 days of confirming your order, free of charge. Elsewhere in Thailand allow 2–4 working days. For Singapore, Malaysia and Vietnam, we'll quote shipping cost and timing on WhatsApp before you pay.</p>
@@ -496,17 +493,17 @@
         <div>
           <img src="assets/volt-padel-logo-dark.png" alt="Volt Padel" width="482" height="140">
           <p>Official distributor of Volt Padel in Thailand and Southeast Asia.</p>
-          <p style="margin-top:8px">Sterling Padel Bangkok, Sukhumvit Soi 24, Bangkok</p>
+          <p class="foot-addr">Sterling Padel Bangkok, Sukhumvit Soi 24, Bangkok</p>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h2 class="foot-h">Contact</h2>
           <ul>
             <li><a data-wa href="https://wa.me/34696814841" target="_blank" rel="noopener">WhatsApp +34 696 814 841</a></li>
             <li><a href="https://www.instagram.com/javipadelbalance/" target="_blank" rel="noopener">Instagram @javipadelbalance</a></li>
           </ul>
         </div>
         <div>
-          <h4>Explore</h4>
+          <h2 class="foot-h">Explore</h2>
           <ul>
             <li><a href="#rackets">Rackets</a></li>
             <li><a href="#how">How to order</a></li>
@@ -584,7 +581,7 @@
     grid.innerHTML = RACKETS.map(function (r) {
       var msg = "Hi Javi! I'd like to order the Volt " + r.id + " (" + r.type + ", " + r.shape + ") – " +
         thb(r.thb) + ". Is it available?";
-      return '<article class="card reveal" id="' + r.id.toLowerCase() + '">' +
+      return '<article class="card" id="' + r.id.toLowerCase() + '">' +
         '<div class="card-media"><span class="card-badge' + (r.badgeVolt ? " volt" : "") + '">' + r.badge + '</span>' +
         '<img src="' + r.img + '" alt="Volt ' + r.id + ' padel racket" width="750" height="750" loading="lazy"></div>' +
         '<div class="card-body">' +
@@ -613,15 +610,6 @@
     function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
     window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-    // Reveal on scroll
-    if ("IntersectionObserver" in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-      }, { rootMargin: "0px 0px -8% 0px" });
-      document.querySelectorAll(".reveal").forEach(function (el) { io.observe(el); });
-    } else {
-      document.querySelectorAll(".reveal").forEach(function (el) { el.classList.add("in"); });
-    }
   </script>
 </body>
 </html>
