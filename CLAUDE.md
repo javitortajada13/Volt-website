@@ -44,6 +44,8 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
   - `v1000.png`, `v600.png`, `v500.png` are the current **v5** models (Volt 1000 v5, 600 v5, 500 v5). voltpadel.com also has older models (950, 900, 800…) with similar images. Don't mix them up: the model number is printed on the racket.
   - Specs on the cards come from the official v5 product pages: voltpadel.com/shop/products/p/volt-1000-v5, /volt-600-v5, /volt-500-v5.
 - `README.md`: local preview and deployment steps.
+- `index-b.html`: bold alternative design (Portuguese tile façade) for comparison. Not linked from the site. Once Javi picks a version, delete the other file before publishing.
+- `PRODUCT.md`, `.impeccable/`: product facts and design notes used by the design tooling.
 
 ## Commands
 
