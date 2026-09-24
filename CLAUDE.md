@@ -16,13 +16,13 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 
 ## Products and prices (source of truth)
 
-| Model | Type      | Shape    | Price THB | Price EUR |
-|-------|-----------|----------|-----------|-----------|
-| V500  | All-round | Teardrop | ฿9,500    | ~€247     |
-| V600  | Control   | Round    | ฿12,500   | ~€325     |
-| V1000 | Power     | Diamond  | ฿13,500   | ~€351     |
+| Model | Type      | Shape    | Price THB |
+|-------|-----------|----------|-----------|
+| V500  | All-round | Teardrop | ฿9,500    |
+| V600  | Control   | Round    | ฿12,500   |
+| V1000 | Power     | Diamond  | ฿13,500   |
 
-All prices include Bangkok delivery. SEA shipping is extra. Competitor reference: quad-sports.com top model at ฿16,669; Volt is positioned below that.
+Prices are in Thai baht only. They are higher than voltpadel.com's euro prices because they include import shipping, duties and taxes, so never show euro prices on the site. All prices include Bangkok delivery. SEA shipping is extra. Competitor reference: quad-sports.com top model at ฿16,669; Volt is positioned below that.
 
 ## Tech stack
 
@@ -54,7 +54,7 @@ All prices include Bangkok delivery. SEA shipping is extra. Competitor reference
 
 ## Key behaviour
 
-- Every WhatsApp link pre-fills a message. Racket buttons include the model and the price in ฿ and €.
+- Every WhatsApp link pre-fills a message. Racket buttons include the model and the price in ฿.
 - Coach referral (prepared, not launched): `?ref=CODE` is saved in localStorage for 30 days and appended as `Coach code: CODE` to every WhatsApp message. The planned commission is 5% on sales traced to a code.
 
 ## What NOT to do
@@ -63,7 +63,7 @@ All prices include Bangkok delivery. SEA shipping is extra. Competitor reference
 - No online payment, cart or checkout. WhatsApp only for now.
 - The brand is VOLT, never "Bolt".
 - Never invent prices. Use the table above.
-- Always show prices in both ฿ and €, side by side.
+- Show prices in Thai baht (฿) only. No euro prices or conversions.
 
 ## Working agreements
 

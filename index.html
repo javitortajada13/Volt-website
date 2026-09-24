@@ -203,8 +203,6 @@
     .specs li span:last-child { text-align: right; font-weight: 500; }
     .price { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-top: auto; margin-bottom: 4px; }
     .price-thb { font-family: var(--heading); font-weight: 500; font-size: 36px; letter-spacing: .04em; line-height: 1; }
-    .price-sep { color: var(--line); font-size: 24px; }
-    .price-eur { font-family: var(--heading); font-weight: 400; font-size: 22px; color: var(--ink-soft); letter-spacing: .04em; }
     .price-note { font-size: 12px; color: var(--muted); margin: 0 0 20px; }
     .card .btn { width: 100%; }
 
@@ -357,7 +355,7 @@
             </a>
             <a class="btn btn-ghost" href="#rackets">View rackets</a>
           </div>
-          <p class="hero-note">From ฿9,500 / ~€247 · Free delivery in Bangkok</p>
+          <p class="hero-note">From ฿9,500 · Free delivery in Bangkok</p>
         </div>
         <div class="hero-media reveal">
           <img src="assets/v600.png" alt="Volt V600 padel racket, white round control racket" width="750" height="750" fetchpriority="high">
@@ -519,7 +517,7 @@
       </div>
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> Volt Padel Thailand</span>
-        <span>Prices in Thai baht. Euro prices are approximate.</span>
+        <span>All prices in Thai baht, including import duties and taxes.</span>
       </div>
     </div>
   </footer>
@@ -536,19 +534,19 @@
     // Prices come from the spec table in CLAUDE.md. Never change them without updating it.
     var RACKETS = [
       {
-        id: "V1000", type: "Power", shape: "Diamond", thb: 13500, eur: 351,
+        id: "V1000", type: "Power", shape: "Diamond", thb: 13500,
         img: "assets/v1000.png", badge: "Max power", badgeVolt: true,
         desc: "For attacking players who want maximum power without giving up comfort. Explosive response with a solid, precise feel.",
         specs: [["Shape", "Diamond"], ["Balance", "High"], ["Faces", "24K silver aluminized carbon"], ["Core", "Black Comfort EVA, 38mm"], ["Weight", "350–370g"]]
       },
       {
-        id: "V600", type: "Control", shape: "Round", thb: 12500, eur: 325,
+        id: "V600", type: "Control", shape: "Round", thb: 12500,
         img: "assets/v600.png", badge: "Control",
         desc: "A round racket built on control and precision, with more power than you'd expect when you need to go on the attack.",
         specs: [["Shape", "Round"], ["Balance", "Medium-low"], ["Faces", "12K aluminized carbon"], ["Core", "Black EVA, 38mm"], ["Weight", "350–370g"]]
       },
       {
-        id: "V500", type: "All-round", shape: "Teardrop", thb: 9500, eur: 247,
+        id: "V500", type: "All-round", shape: "Teardrop", thb: 9500,
         img: "assets/v500.png", badge: "Best value",
         desc: "The perfect balance of power, control and comfort. Versatile and consistent, whatever your style of play.",
         specs: [["Shape", "Teardrop"], ["Balance", "Medium-high"], ["Faces", "12K aluminized carbon"], ["Core", "EVA, 38mm"], ["Weight", "350–370g"]]
@@ -557,7 +555,6 @@
     // ------------------------------------------------------------------------
 
     function thb(n) { return "฿" + n.toLocaleString("en-US"); }
-    function eur(n) { return "~€" + n; }
 
     // Coach referral (not live yet): ?ref=CODE is remembered for 30 days and
     // appended to every WhatsApp message so sales can be traced to the coach.
@@ -586,7 +583,7 @@
     var grid = document.getElementById("rackets-grid");
     grid.innerHTML = RACKETS.map(function (r) {
       var msg = "Hi Javi! I'd like to order the Volt " + r.id + " (" + r.type + ", " + r.shape + ") – " +
-        thb(r.thb) + " / " + eur(r.eur) + ". Is it available?";
+        thb(r.thb) + ". Is it available?";
       return '<article class="card reveal" id="' + r.id.toLowerCase() + '">' +
         '<div class="card-media"><span class="card-badge' + (r.badgeVolt ? " volt" : "") + '">' + r.badge + '</span>' +
         '<img src="' + r.img + '" alt="Volt ' + r.id + ' padel racket" width="750" height="750" loading="lazy"></div>' +
@@ -597,9 +594,8 @@
           '<ul class="specs">' + r.specs.map(function (s) {
             return '<li><span>' + s[0] + '</span><span>' + s[1] + '</span></li>';
           }).join("") + '</ul>' +
-          '<div class="price"><span class="price-thb">' + thb(r.thb) + '</span><span class="price-sep">/</span>' +
-          '<span class="price-eur">' + eur(r.eur) + '</span></div>' +
-          '<p class="price-note">Includes Bangkok delivery · SEA shipping extra</p>' +
+          '<div class="price"><span class="price-thb">' + thb(r.thb) + '</span></div>' +
+          '<p class="price-note">Import duties, taxes &amp; Bangkok delivery included · SEA shipping extra</p>' +
           '<a class="btn btn-wa" href="' + waLink(msg) + '" target="_blank" rel="noopener">' +
             '<svg><use href="#i-wa"/></svg>Order ' + r.id + '</a>' +
         '</div></article>';
