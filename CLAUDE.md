@@ -18,7 +18,7 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 
 | Model | Type      | Shape    | Price THB |
 |-------|-----------|----------|-----------|
-| V500  | All-round | Teardrop | ฿9,500    |
+| V500  | Control   | Round    | ฿9,500    |
 | V600  | Control   | Round    | ฿12,500   |
 | V1000 | Power     | Diamond  | ฿13,500   |
 
@@ -38,7 +38,8 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
   - Page sections in order: nav, hero, shipping bar, rackets, how to order, about and coach teaser, FAQ, footer, WhatsApp FAB.
 - `assets/`: logo and racket images, downloaded from the voltpadel.com Squarespace CDN. Never hotlink them.
   - `volt-padel-logo.png` is the original white logo; `volt-padel-logo-dark.png` is the recolored version for light backgrounds.
-  - `v1000.png`, `v600.png`, `v500.png` are the racket images.
+  - `v1000.png`, `v600.png`, `v500.png` are the current **v5** models (Volt 1000 v5, 600 v5, 500 v5). voltpadel.com also has older models (950, 900, 800…) with similar images. Don't mix them up: the model number is printed on the racket.
+  - Specs on the cards come from the official v5 product pages: voltpadel.com/shop/products/p/volt-1000-v5, /volt-600-v5, /volt-500-v5.
 - `README.md`: local preview and deployment steps.
 
 ## Commands
