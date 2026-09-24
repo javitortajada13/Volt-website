@@ -2,22 +2,70 @@
 
 This file gives Claude Code (claude.ai/code) guidance when working in this repository.
 
-## Project
+## What this is
 
-Volt website. The repository is currently empty: no source code, tooling, or build setup has been added yet.
+Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is the exclusive distributor of Volt Padel (a premium Portuguese racket brand, voltpadel.com) in Thailand and Southeast Asia. The site handles direct orders outside Sterling Padel Bangkok.
 
-## Status
+## Business context
 
-Update this file as the project takes shape. Add the following once they exist:
+- Territory: Thailand (primary); ships to Singapore, Malaysia and Vietnam.
+- Based at Sterling Padel Bangkok, Sukhumvit Soi 24.
+- Sales model: no online payment. The customer browses, messages on WhatsApp, and Javi confirms and arranges delivery.
+- WhatsApp: +34 696 814 841 (`wa.me/34696814841`)
+- Instagram: @javipadelbalance
 
-- **Tech stack**: framework, language, styling approach
-- **Commands**: install, dev server, build, lint, format, test
-- **Structure**: where pages, components, assets, and config live
-- **Conventions**: naming, code style, commit messages, branching
-- **Deployment**: hosting target and how releases go out
+## Products and prices (source of truth)
+
+| Model | Type      | Shape    | Price THB | Price EUR |
+|-------|-----------|----------|-----------|-----------|
+| V500  | All-round | Teardrop | ฿9,500    | ~€247     |
+| V600  | Control   | Round    | ฿12,500   | ~€325     |
+| V1000 | Power     | Diamond  | ฿13,500   | ~€351     |
+
+All prices include Bangkok delivery. SEA shipping is extra. Competitor reference: quad-sports.com top model at ฿16,669; Volt is positioned below that.
+
+## Tech stack
+
+- Static HTML/CSS/JS. No framework, no build step, no dependencies.
+- Fonts: Google Fonts (Barlow Condensed for headings, Barlow for body), standing in for voltpadel.com's DIN Condensed / DIN 2014.
+- Hosting: Cloudflare Pages (free tier). Domain: voltpadelthai.com or voltpadelthailand.com.
+
+## Structure
+
+- `index.html`: the whole site. CSS in `<style>`, JS in `<script>` at the end.
+  - `RACKETS` array in the script: model data. The racket cards are rendered from it.
+  - `WHATSAPP` constant: the number used for every WhatsApp link.
+  - Page sections in order: nav, hero, shipping bar, rackets, how to order, about and coach teaser, FAQ, footer, WhatsApp FAB.
+- `assets/`: logo and racket images, downloaded from the voltpadel.com Squarespace CDN. Never hotlink them.
+  - `volt-padel-logo.png` is the original white logo; `volt-padel-logo-dark.png` is the recolored version for light backgrounds.
+  - `v1000.png`, `v600.png`, `v500.png` are the racket images.
+- `README.md`: local preview and deployment steps.
+
+## Commands
+
+- Preview: `npx serve .` or open `index.html` directly.
+- No lint or test setup yet. Before committing, check the page at 390px and 1440px widths and confirm there's no horizontal scroll.
+
+## Design rules
+
+- Match voltpadel.com: white/light backgrounds, minimal and premium. Headings are uppercase, light weight, with wide letter-spacing.
+- Colors: ink `#111`, Volt yellow `#FAE100` (voltpadel.com's `hsl(54,100%,49%)`), cream `#F5F2E6`. Yellow is for fills and highlights only. Never use yellow text on white (not legible).
+- Mobile-first. Keep a 16px side gutter on phones.
+
+## Key behaviour
+
+- Every WhatsApp link pre-fills a message. Racket buttons include the model and the price in ฿ and €.
+- Coach referral (prepared, not launched): `?ref=CODE` is saved in localStorage for 30 days and appended as `Coach code: CODE` to every WhatsApp message. The planned commission is 5% on sales traced to a code.
+
+## What NOT to do
+
+- No dark or black page backgrounds.
+- No online payment, cart or checkout. WhatsApp only for now.
+- The brand is VOLT, never "Bolt".
+- Never invent prices. Use the table above.
+- Always show prices in both ฿ and €, side by side.
 
 ## Working agreements
 
 - Keep changes focused. Don't add unrelated refactors to a change.
-- Before committing, run the project's lint and test commands once they're defined.
 - Don't commit secrets or `.env` files.
