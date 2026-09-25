@@ -45,6 +45,7 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
   - Specs on the cards come from the official v5 product pages: voltpadel.com/shop/products/p/volt-1000-v5, /volt-600-v5, /volt-500-v5.
 - `README.md`: local preview and deployment steps.
 - `index-b.html`: bold alternative design (Portuguese tile façade) for comparison. Not linked from the site. Once Javi picks a version, delete the other file before publishing.
+- `index-c.html`: third direction (technical drawing sheet) for comparison. Uses `assets/c/` for self-hosted Barlow fonts and official Volt detail photos. Not linked from the site.
 - `PRODUCT.md`, `.impeccable/`: product facts and design notes used by the design tooling.
 
 ## Commands
