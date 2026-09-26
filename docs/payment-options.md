@@ -9,6 +9,34 @@ Research notes, September 2026. Nothing here is implemented. Fees and rules chan
 - Some Thai gateway users report that Opn asks foreigners for a work permit.
 - Questions to settle with a Thai accountant or lawyer before choosing: Javi's visa and work-permit status; whether he has (or will create) a Thai company or a partner structure; whether a Spanish autónomo registration exists; which bank accounts are in his name.
 
+## Current situation (September 2026)
+
+- No Thai company.
+- Not registered as self-employed in Spain, and no plan to register.
+- Personal Thai bank accounts with PromptPay.
+- Wise and Spanish bank accounts exist, but must not be assumed to be viable ecommerce merchant or settlement accounts.
+- Thai visa and work permit in place. Whether the current work permit covers this separate commercial activity has **not** been legally verified.
+
+## Questions that need professional confirmation in Thailand
+
+1. Does the current work permit cover selling rackets as a separate commercial activity? If not, how can it be regularised?
+2. Which legal structure fits: a Thai company with a Thai partner holding at least 51%, or another arrangement?
+3. Can a foreign resident open Stripe Thailand (or a similar gateway) as an "Individual", and would that be compliant?
+4. How must this income be declared and taxed?
+
+## Realistic routes (none chosen)
+
+| Route | What it is | Status |
+|---|---|---|
+| 1. Manual PromptPay or bank transfer to a personal Thai account | What happens today. On a website it would mean showing an amount and a QR, with manual (or slip-verified) confirmation | Technically possible with existing accounts. Not a gateway; confirmation is manual. The legal questions above apply to it as well |
+| 2. Stripe Thailand as "Individual" | Stripe Thailand lists "Individual" as an account type | **Unverified.** Whether a foreign resident is eligible, and whether it would be compliant, is not confirmed. Not an available solution |
+| 3. Thai company with a Thai partner (51%) | The standard structure; the company opens Stripe Thailand or Opn and gets full card and PromptPay checkout | Requires setting up a company and finding a partner |
+| 4. An existing Thai business sells and collects payment, paying a commission | Similar to a reseller or agent arrangement | Depends on a partner and on negotiated terms |
+
+Ruled out for now: Stripe Spain, Wise payment links and Spanish accounts as the merchant side, because they require a business registered outside Thailand. A company in Hong Kong or elsewhere would add cost without removing the Thai legal questions, since the stock, the seller and the deliveries are in Thailand, and it would still not offer PromptPay.
+
+**The payment implementation is undecided.** None of these routes is the planned interim checkout.
+
 ## Two different things
 
 - **Payment gateway / hosted checkout**: the customer pays on a secure page (card or PromptPay). The gateway confirms the payment automatically, the order is marked paid, refunds go through the dashboard.
@@ -29,7 +57,9 @@ Research notes, September 2026. Nothing here is implemented. Fees and rules chan
 
 ## How it would fit this site
 
-With any hosted checkout (Stripe Payment Links in particular), the current static site does not need a platform or a backend:
+The website can show proper "Buy V500 / V600 / V1000" actions now, as placeholders for a future checkout. What happens behind them is decided after the legal and payment setup is clear.
+
+If a hosted checkout is chosen later (Stripe Payment Links, for example), the current static site would not need a platform or a backend:
 
 `Buy V1000` → hosted secure checkout (card or PromptPay) → Stripe's receipt email to the customer and payment notification to Javi → Javi ships.
 

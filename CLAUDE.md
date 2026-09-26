@@ -28,7 +28,7 @@ Two channels, deliberately separate:
 On the website:
 
 - No personal names (no "Javi") in copy, CTAs, alt text or meta tags, and no brand story built around a person ("a real person who plays padel", "one person", "the distributor, Javi"). Write as the business: "we", "us", "Volt Padel Thailand".
-- CTAs are brand-neutral. Buying and getting help are separate intents: a racket's buy button leads to the website's checkout once one exists ("Buy V600"); help leads to WhatsApp ("Need help choosing? Message us on WhatsApp", "Contact us"). Until checkout exists, the existing WhatsApp order buttons stay. Never "Message Javi".
+- CTAs are brand-neutral. Buying and getting help are separate intents: a racket's buy button leads to the website's checkout once one exists ("Buy V600"); help leads to WhatsApp ("Need help choosing? Message us on WhatsApp", "Contact us"). The design can already show proper "Buy V500 / V600 / V1000" actions, but they are placeholders: what happens behind them is decided only after the legal and payment setup is clear (`docs/payment-options.md`). Never "Message Javi".
 - Payment copy must match whatever payment architecture is chosen. It never says whose account receives the money.
 - **Sterling Padel Bangkok never appears on the site**: no address, no pickup point, no demo rackets there, no "based at". Sales must go through the website and WhatsApp flow (a sale through Sterling pays Javi much less commission). If someone asks to try a racket, that is arranged privately on WhatsApp; the site may say "Want to try one first? Message us on WhatsApp" without naming a place.
 - Don't show the +34 number as visible page content. Buttons and links still point to it behind the scenes.
