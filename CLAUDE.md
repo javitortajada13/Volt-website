@@ -14,8 +14,20 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 - Payment: bank transfer or PromptPay to Javi's **personal** account. There is no registered company, so the site must never mention invoices, VAT/tax receipts or a company name ("Co., Ltd" etc.).
 - Delivery times (confirmed): Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted case by case.
 - Status: not published yet. Don't set up the domain or deploy until Javi says so.
-- WhatsApp: +34 696 814 841 (`wa.me/34696814841`)
-- Instagram: @javipadelbalance
+- WhatsApp: +34 696 814 841 (`wa.me/34696814841`), currently Javi's own number; may change to a Volt business number.
+- Instagram: @javipadelbalance is Javi's personal account. Don't link it from the final site unless Javi decides otherwise.
+
+## Public identity (requirement for the final site)
+
+The customer-facing identity is **Volt Padel Thailand**, the official Volt distributor in Thailand. The site must not be personally associated with Javi.
+
+- Never use Javi's name (or any personal name) in customer-facing copy, CTAs, alt text, meta tags or pre-filled WhatsApp messages. Write as the business: "we", "us", "Volt Padel Thailand".
+- Don't describe the distributor as one person ("a real person who plays padel", "one person", "sends you his bank details", "payment goes to him").
+- CTA wording is neutral and brand-level: "Message us", "Contact us", "Order on WhatsApp", "Order V600" and similar. Pre-filled messages start with "Hi Volt Padel Thailand!" or a plain "Hi!", never a name.
+- Payment copy says bank details are sent on WhatsApp after the order is confirmed. It must not say whose account it is.
+- The WhatsApp number can stay as the current one for now, but it may be replaced by a dedicated Volt business number. Keep the contact destination in one place: a single config value (number, and a separate display string if the number is shown), with no hard-coded `wa.me/...` fallbacks or number text scattered through the HTML.
+- Open decisions for Javi: whether to show the WhatsApp number as visible text at all, and which Instagram account to link (the current `@javipadelbalance` is personal; drop it or replace it with a brand account).
+- Existing files `index.html`, `index-b.html` and `index-c.html` predate this requirement and still contain personal references. Apply it when the chosen version is finalised.
 
 ## Products and prices (source of truth)
 
@@ -61,7 +73,7 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
 
 ## Key behaviour
 
-- Every WhatsApp link pre-fills a message. Racket buttons include the model and the price in ฿.
+- Every WhatsApp link pre-fills a message, addressed to the business, never to a person. Racket buttons include the model and the price in ฿.
 - Coach referral (prepared, not launched): `?ref=CODE` is saved in localStorage for 30 days and appended as `Coach code: CODE` to every WhatsApp message. The planned commission is 5% on sales traced to a code.
 
 ## What NOT to do

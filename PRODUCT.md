@@ -39,6 +39,7 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. A 
 
 ## Brand Commitments
 
+- Public identity is Volt Padel Thailand, the official Volt distributor in Thailand. No personal names or one-person framing anywhere customer-facing; neutral CTAs ("Message us", "Order on WhatsApp"). The contact number lives in one config value so it can be swapped for a business number.
 - The brand is VOLT (never "Bolt"). Tagline "Unleash the tension" and the "Choose your voltage" phrase come from Volt's own site.
 - Look must stay close to voltpadel.com: white/light backgrounds (no dark or black page backgrounds), Volt yellow `hsl(54,100%,49%)`, black ink, DIN-style condensed uppercase headings.
 - Official Volt logo and v5 racket images in `assets/` (downloaded from voltpadel.com).
@@ -51,6 +52,6 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. A 
 ## Product Principles
 
 1. Every path ends in one WhatsApp tap with the racket already named.
-2. Trust before persuasion: official distributor, real person, clear terms, no surprises at payment.
+2. Trust before persuasion: official distributor, direct WhatsApp contact, clear terms, no surprises at payment. The brand speaks, not an individual.
 3. Look like Volt. A customer comparing with voltpadel.com or Instagram should see the same brand.
 4. Phone first. Most visitors arrive from Instagram or the club on a phone.
