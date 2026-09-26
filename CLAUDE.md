@@ -14,7 +14,8 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 - Payment architecture: **undecided**. See `docs/payment-options.md`. Don't implement any payment system until Javi chooses one. Today Javi takes bank transfer or PromptPay to his **personal** account; there is no registered company, so the site must never mention invoices, VAT/tax receipts or a company name ("Co., Ltd" etc.).
 - Delivery times (confirmed): Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted case by case.
 - Status: not published yet. Don't set up the domain or deploy until Javi says so.
-- WhatsApp: +34 696 814 841 (`wa.me/34696814841`), Javi's current WhatsApp, where he has the Volt product catalogue set up and talks to customers directly. May be replaced later by a dedicated Volt business number or profile.
+- WhatsApp (site): +66 97 302 5462 (`wa.me/66973025462`), a dedicated Thai number on WhatsApp Business, profile "Volt Padel Thailand" with the Volt catalogue. Javi answers customers there personally.
+- Javi's personal WhatsApp +34 696 814 841 is for his students and private life. Never use it on the site.
 - Instagram: @javipadelbalance is Javi's personal account. Never link it from the public site. A dedicated Volt Thailand account may be added later.
 
 ## Public identity (requirement for the final site)
@@ -31,7 +32,7 @@ On the website:
 - CTAs are brand-neutral. Buying and getting help are separate intents: a racket's buy button leads to the website's checkout once one exists ("Buy V600"); help leads to WhatsApp ("Need help choosing? Message us on WhatsApp", "Contact us"). The design can already show proper "Buy V500 / V600 / V1000" actions, but they are placeholders: what happens behind them is decided only after the legal and payment setup is clear (`docs/payment-options.md`). Never "Message Javi".
 - Payment copy must match whatever payment architecture is chosen. It never says whose account receives the money.
 - **Sterling Padel Bangkok never appears on the site**: no address, no pickup point, no demo rackets there, no "based at". Sales must go through the website and WhatsApp flow (a sale through Sterling pays Javi much less commission). If someone asks to try a racket, that is arranged privately on WhatsApp; the site may say "Want to try one first? Message us on WhatsApp" without naming a place.
-- Don't show the +34 number as visible page content. Buttons and links still point to it behind the scenes.
+- Don't show phone numbers as visible page content. Buttons and links point to the WhatsApp number behind the scenes.
 - Don't link @javipadelbalance. Leave Instagram out until a Volt Thailand account exists.
 
 Inside the WhatsApp flow:

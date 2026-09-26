@@ -24,7 +24,7 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. Di
 
 ## Operating Context
 
-- Ordering today: WhatsApp (+34 696 814 841). Target: checkout on the website; WhatsApp stays as a complementary channel. Payment options are compared in docs/payment-options.md; nothing implemented yet.
+- Ordering today: WhatsApp Business "Volt Padel Thailand" (+66 97 302 5462). Target: checkout on the website; WhatsApp stays as a complementary channel. Payment options are compared in docs/payment-options.md; nothing implemented yet.
 - Payment: bank transfer or PromptPay to Javi's personal account. There is no registered company.
 - Delivery: Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted per order.
 - Trying a racket: arranged privately on WhatsApp on request. No venue is named on the site.
