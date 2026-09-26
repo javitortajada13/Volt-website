@@ -42,7 +42,7 @@ Implementation:
 
 - Keep the WhatsApp destination in one place: a single config value in the script. No hard-coded `wa.me/...` fallbacks or number text scattered through the HTML, so switching to a business number or profile is a one-line change.
 
-Status: `index.html`, `index-b.html` and `index-c.html` predate this requirement and still contain personal references, Sterling mentions and the visible number. Apply it when the chosen version is finalised.
+Status: Javi chose version C (`index-c.html`), which now follows this requirement. `index.html` (A) and `index-b.html` (B) predate it and still contain personal references, Sterling mentions and the visible number; they are pending deletion.
 
 ## Products and prices (source of truth)
 
@@ -72,7 +72,10 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
   - Specs on the cards come from the official v5 product pages: voltpadel.com/shop/products/p/volt-1000-v5, /volt-600-v5, /volt-500-v5.
 - `README.md`: local preview and deployment steps.
 - `index-b.html`: bold alternative design (Portuguese tile façade) for comparison. Not linked from the site. Once Javi picks a version, delete the other file before publishing.
-- `index-c.html`: third direction (technical drawing sheet) for comparison. Uses `assets/c/` for self-hosted Barlow fonts and official Volt detail photos. Not linked from the site.
+- `index-c.html`: **the chosen version** (technical drawing sheet). Uses `assets/c/` for self-hosted Barlow fonts and `assets/gallery/` for the official v5 photos (45°, heart, frame).
+  - Each racket has a swipeable gallery: slide 1 is the front view with the specs written on leader lines, then the photos.
+  - `RACKETS[].buy`: checkout URL per racket. Empty for now, so "Buy" shows a "checkout coming soon" note with a WhatsApp order link. Setting the URL makes every Buy button for that racket go there.
+  - A real 360° view needs 24-36 photos per racket (none exist yet); don't fake it by rotating a flat image.
 - `docs/payment-options.md`: research on payment architecture (gateways, PromptPay, settlement, requirements). No option chosen yet.
 - `PRODUCT.md`, `.impeccable/`: product facts and design notes used by the design tooling.
 

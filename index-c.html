@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Volt Padel Thailand | Official Distributor</title>
-  <meta name="description" content="Official Volt Padel distributor in Thailand. Three v5 rackets from ฿9,500, free delivery in Bangkok. Order on WhatsApp.">
+  <meta name="description" content="Official Volt Padel distributor in Thailand. Three v5 rackets from ฿9,500, free delivery in Bangkok.">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#fcfcfb">
   <meta property="og:title" content="Volt Padel Thailand">
-  <meta property="og:description" content="Three Volt v5 rackets from ฿9,500. Free delivery in Bangkok. Order on WhatsApp.">
+  <meta property="og:description" content="Three Volt v5 rackets from ฿9,500. Free delivery in Bangkok.">
   <meta property="og:image" content="assets/v1000.png">
   <meta property="og:type" content="website">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAE100'/%3E%3Cpath d='M7 7h5l4 11 4-11h5l-7 18h-4z' fill='%23141414'/%3E%3C/svg%3E">
@@ -172,30 +172,33 @@
     .match-flag { display: none; font-family: var(--display); font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; background: var(--volt); padding: 3px 8px 2px; vertical-align: 1.2em; margin-left: 12px; }
     .sheet.is-match .match-flag { display: inline-block; }
 
-    .drawing { position: relative; margin: -44px 0 -40px; }
-    @media (min-width: 960px) { .drawing { margin: -40px 0 0; } }
-    .drawing img { width: 100%; height: auto; }
+    /* Gallery: swipe between the labelled drawing and the official photos */
+    .gal-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; touch-action: pan-x pan-y; }
+    .gal-track::-webkit-scrollbar { display: none; }
+    .slide { flex: 0 0 100%; margin: 0; aspect-ratio: 1; position: relative; scroll-snap-align: center; scroll-snap-stop: always; overflow: hidden; }
+    .slide img { width: 100%; height: 100%; object-fit: cover; }
+    .gal-nav { display: grid; grid-template-columns: 1fr auto auto auto; align-items: center; gap: 4px; margin-top: 8px; }
+    .gal-cap { font-family: var(--display); font-weight: 500; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); }
+    .gal-cap .num { color: var(--ink-3); margin-right: 8px; }
+    .dots { display: flex; }
+    .dot { width: 24px; height: 44px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; place-items: center; touch-action: manipulation; }
+    .dot::before { content: ""; width: 8px; height: 8px; border: 1.5px solid var(--ink); border-radius: 50%; transition: background-color 160ms ease; }
+    .dot[aria-current="true"]::before { background: var(--ink); }
+    .arrow { width: 44px; height: 44px; padding: 0; border: 0; background: none; color: var(--ink); cursor: pointer; display: grid; place-items: center; touch-action: manipulation; transition: opacity 160ms ease, transform 140ms var(--ease-out); }
+    .arrow:active { transform: scale(.92); }
+    .arrow:disabled { opacity: .25; cursor: default; }
+    .arrow .i { width: 22px; height: 22px; }
+
+    /* Labelled front view: each spec sits on its own leader line */
     .leaders { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
     .leaders path { fill: none; stroke: var(--ink); stroke-width: 1.25; vector-effect: non-scaling-stroke; }
     .leaders circle { fill: var(--ink); }
-    .bal {
-      position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); width: 30px; height: 30px; margin: -15px 0 0 -15px;
-      display: grid; place-items: center; border: 1.5px solid var(--ink); border-radius: 50%; background: var(--paper);
-      font-family: var(--display); font-weight: 600; font-size: 16px; line-height: 1; padding-top: 1px;
-    }
-    @media (min-width: 960px) { .bal { width: 36px; height: 36px; margin: -18px 0 0 -18px; font-size: 19px; } }
-
-    .parts { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 12px; }
-    .parts li { display: grid; grid-template-columns: 30px 88px 1fr; align-items: baseline; gap: 12px; }
-    .parts .n { width: 26px; height: 26px; display: grid; place-items: center; border: 1.5px solid var(--ink); border-radius: 50%; font-family: var(--display); font-weight: 600; font-size: 14px; line-height: 1; padding-top: 1px; align-self: center; }
-    .parts .k { font-family: var(--display); font-weight: 500; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
-    .parts .v { font-weight: 500; }
-
-    .view { margin: 28px 0 0; display: grid; grid-template-columns: 112px 1fr; gap: 14px; align-items: center; }
-    .view img { width: 112px; height: 112px; object-fit: cover; border: 1px solid var(--rule); background: var(--paper); }
-    .view figcaption { font-size: 14px; color: var(--ink-2); }
-    @media (min-width: 960px) { .view { grid-template-columns: 168px 1fr; gap: 18px; } .view img { width: 168px; height: 168px; } }
-    .view figcaption b { display: block; font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); }
+    .lbl { position: absolute; top: calc(var(--y) * 1%); width: 26%; transform: translateY(-100%); padding-bottom: 5px; display: grid; line-height: 1.15; }
+    .lbl.l { left: 1%; }
+    .lbl.r { right: 1%; text-align: right; }
+    .lbl b { font-family: var(--display); font-weight: 500; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+    .lbl span { font-family: var(--display); font-weight: 600; font-size: 15px; letter-spacing: .02em; text-transform: uppercase; }
+    @media (min-width: 600px) { .lbl b { font-size: 14px; } .lbl span { font-size: 19px; } }
 
     /* Title block: the drawing's corner table, used as the buy box */
     .tb { margin-top: 28px; border: 1.5px solid var(--ink); }
@@ -206,6 +209,10 @@
     .tb .price-v { background: var(--volt); font-family: var(--display); font-weight: 700; font-size: 34px; line-height: 1; padding: 12px 12px 9px; }
     .tb .price-k { background: var(--volt); }
     .tb .btn { width: 100%; border: 0; min-height: 56px; }
+    .buy-note { margin: 0; padding: 12px; border-top: 1px solid var(--ink); font-size: 15px; color: var(--ink-2); }
+    .buy-note[hidden] { display: none; }
+    .help { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 10px; font-size: 15px; color: var(--ink-2); text-decoration: underline; text-decoration-color: var(--rule); }
+    @media (hover: hover) and (pointer: fine) { .help:hover { color: var(--ink); text-decoration-color: var(--volt); text-decoration-thickness: 3px; } }
 
     /* 5. How ordering works */
     .notes { border-top: 1px solid var(--ink); padding: 64px 0; }
@@ -278,10 +285,12 @@
       @keyframes rise { from { opacity: 0; transform: translateY(14px); } }
       .lineup .lu { animation: rise 560ms var(--ease-out) both; animation-delay: calc(var(--k) * 70ms + 80ms); }
       .js .sheet .leaders path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset 720ms var(--ease-out); transition-delay: calc(var(--k) * 90ms); }
-      .js .sheet .leaders circle, .js .sheet .bal { opacity: 0; transform: scale(.9); transition: opacity 260ms ease, transform 260ms var(--ease-out); transition-delay: calc(var(--k) * 90ms + 420ms); }
-      .js .sheet .leaders circle { transform-box: fill-box; transform-origin: center; }
+      .js .sheet .leaders circle, .js .sheet .lbl { opacity: 0; transition: opacity 260ms ease, transform 260ms var(--ease-out); transition-delay: calc(var(--k) * 90ms + 420ms); }
+      .js .sheet .leaders circle { transform: scale(.9); transform-box: fill-box; transform-origin: center; }
       .js .sheet.is-drawn .leaders path { stroke-dashoffset: 0; }
-      .js .sheet.is-drawn .leaders circle, .js .sheet.is-drawn .bal { opacity: 1; transform: none; }
+      .js .sheet.is-drawn .leaders circle, .js .sheet.is-drawn .lbl { opacity: 1; }
+      .js .sheet.is-drawn .leaders circle { transform: none; }
+      .gal-track { scroll-behavior: smooth; }
     }
     @media (prefers-reduced-motion: reduce) {
       .bar, .bar-copy, .bar .btn, .sheet, .q2, .result { transition: opacity 160ms ease; }
@@ -290,7 +299,7 @@
   </style>
 </head>
 <body>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><!-- Phosphor Icons 2.1.1 (MIT), regular weight --><symbol id="whatsapp-logo" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol><symbol id="arrow-counter-clockwise" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z"/></symbol><symbol id="plus" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol><symbol id="instagram-logo" viewBox="0 0 256 256" fill="currentColor"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></symbol></svg>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><!-- Phosphor Icons 2.1.1 (MIT), regular weight --><symbol id="whatsapp-logo" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol><symbol id="arrow-counter-clockwise" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a96,96,0,0,1-94.71,96H128A95.38,95.38,0,0,1,62.1,197.8a8,8,0,0,1,11-11.63A80,80,0,1,0,71.43,71.39a3.07,3.07,0,0,1-.26.25L44.59,96H72a8,8,0,0,1,0,16H24a8,8,0,0,1-8-8V56a8,8,0,0,1,16,0V85.8L60.25,60A96,96,0,0,1,224,128Z"/></symbol><symbol id="plus" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol><symbol id="caret-left" viewBox="0 0 256 256" fill="currentColor"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"/></symbol><symbol id="caret-right" viewBox="0 0 256 256" fill="currentColor"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"/></symbol></svg>
 
   <header class="nav" id="nav">
     <div class="wrap nav-in">
@@ -301,7 +310,7 @@
       <nav class="nav-links" aria-label="Main">
         <a href="#rackets">Rackets</a><a href="#choose">Help me choose</a><a href="#ordering">Ordering</a><a href="#faq">FAQ</a>
       </nav>
-      <a class="btn btn-ink" data-wa href="https://wa.me/34696814841" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg>Message Javi</a>
+      <a class="btn btn-ink" data-wa href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg>Contact us</a>
     </div>
   </header>
 
@@ -310,9 +319,9 @@
       <div class="wrap hero-grid">
         <div class="hero-copy">
           <h1>Choose your voltage.</h1>
-          <p class="lede">Official Volt Padel distributor in Thailand. Free delivery in Bangkok, order on WhatsApp.</p>
+          <p class="lede">Official Volt Padel distributor in Thailand. Three v5 rackets, free delivery in Bangkok.</p>
           <div class="hero-ctas" id="hero-ctas">
-            <a class="btn btn-volt" data-wa href="https://wa.me/34696814841" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg>Message Javi</a>
+            <a class="btn btn-volt" href="#rackets">Shop rackets</a>
             <a class="btn btn-line" href="#choose">Help me choose</a>
           </div>
         </div>
@@ -324,7 +333,7 @@
       <div class="wrap finder-grid">
         <div>
           <h2 id="choose-h">Not sure which one?</h2>
-          <p class="lede">Two questions. We'll point you to one racket, and Javi can confirm on WhatsApp.</p>
+          <p class="lede">Two questions and we'll point you to one racket. Still unsure? <a data-wa href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
         </div>
         <div>
           <fieldset class="q" id="q1">
@@ -356,14 +365,14 @@
       <div class="wrap notes-grid">
         <div>
           <h2 id="ordering-h">How ordering works</h2>
-          <p class="lede">No checkout and no card details online. Every price includes import costs and delivery in Bangkok.</p>
+          <p class="lede">Every price includes import costs and delivery in Bangkok. Every racket is new, original and comes with its cover and protector.</p>
         </div>
         <ol>
-          <li><span>Tap <b>Order</b> on a racket. WhatsApp opens with the model and price already written.</span></li>
-          <li><span>Javi confirms stock and delivery with you.</span></li>
-          <li><span>Pay by <b>bank transfer or PromptPay</b>. Payment goes to Javi directly.</span></li>
-          <li><span><b>Bangkok:</b> free delivery in 1-2 days, or collect at Sterling Padel, Sukhumvit Soi 24.</span></li>
-          <li><span><b>Rest of Thailand:</b> 2-4 working days. <b>Singapore, Malaysia, Vietnam:</b> shipping quoted on WhatsApp.</span></li>
+          <li><span>Choose your racket and tap <b>Buy</b>.</span></li>
+          <li><span>We confirm stock and your delivery details.</span></li>
+          <li><span><b>Bangkok:</b> free delivery in 1-2 days.</span></li>
+          <li><span><b>Rest of Thailand:</b> 2-4 working days.</span></li>
+          <li><span><b>Singapore, Malaysia, Vietnam:</b> shipping quoted before you pay.</span></li>
         </ol>
       </div>
     </section>
@@ -375,7 +384,7 @@
           <div class="about-copy">
             <h2 id="about-h">Made in Portugal. Sold in Bangkok.</h2>
             <p class="big">Volt Padel is a premium padel brand from Portugal, known for top-quality equipment and a design you won't see on every court.</p>
-            <p>In Thailand you buy from the official distributor: Javi, based at Sterling Padel Bangkok on Sukhumvit Soi 24. Ask to try the demo rackets on court before you choose.</p>
+            <p>In Thailand you buy from the official distributor, with stock in Bangkok. Want to try one first? <a data-wa data-wa-msg="Hi! I'd like to try a Volt racket before buying. Is that possible?" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a>.</p>
           </div>
         </div>
         <div class="coach" id="coaches">
@@ -383,7 +392,7 @@
             <h3>Coach program<span>Coming soon</span></h3>
             <p>Padel coaches in Thailand: get your own referral code and earn commission on every racket your players order.</p>
           </div>
-          <a class="btn btn-line" data-wa data-wa-msg="Hi Javi, I'm a padel coach and I'm interested in the Volt coach program." href="https://wa.me/34696814841" target="_blank" rel="noopener">Register interest</a>
+          <a class="btn btn-line" data-wa data-wa-msg="Hi! I'm a padel coach and I'm interested in the Volt coach program." href="#" target="_blank" rel="noopener">Register interest</a>
         </div>
       </div>
     </section>
@@ -394,8 +403,7 @@
         <div class="faq-list">
           <details><summary>How long does delivery take?<svg class="i" aria-hidden="true"><use href="#plus"/></svg></summary><p>In Bangkok we usually deliver within 1-2 days of confirming your order, free of charge. Elsewhere in Thailand allow 2-4 working days. For Singapore, Malaysia and Vietnam, we'll quote shipping cost and timing on WhatsApp before you pay.</p></details>
           <details><summary>Are the rackets authentic?<svg class="i" aria-hidden="true"><use href="#plus"/></svg></summary><p>Yes. We are the exclusive distributor of Volt Padel in Thailand and Southeast Asia, supplied directly by the brand. Every racket is new, original and comes with its premium cover and protector.</p></details>
-          <details><summary>Can I try a racket before buying?<svg class="i" aria-hidden="true"><use href="#plus"/></svg></summary><p>Yes. Demo rackets are available at Sterling Padel Bangkok, Sukhumvit Soi 24. Message us on WhatsApp to arrange a time to test them on court.</p></details>
-          <details><summary>How do I pay?<svg class="i" aria-hidden="true"><use href="#plus"/></svg></summary><p>There's no online payment. Once we confirm your order on WhatsApp, Javi sends you his bank details for a transfer or PromptPay. Payment goes directly to him. Once it's received, we arrange delivery.</p></details>
+          <details><summary>Can I try a racket before buying?<svg class="i" aria-hidden="true"><use href="#plus"/></svg></summary><p>Yes. <a data-wa data-wa-msg="Hi! I'd like to try a Volt racket before buying. Is that possible?" href="#" target="_blank" rel="noopener">Message us on WhatsApp</a> and we'll arrange it.</p></details>
           <details><summary>I'm a coach. Can I work with Volt?<svg class="i" aria-hidden="true"><use href="#plus"/></svg></summary><p>We're launching a coach program soon. Coaches will get a personal referral code and earn commission on sales made through it. <a href="#coaches">Register your interest</a> and we'll be in touch.</p></details>
         </div>
       </div>
@@ -406,13 +414,12 @@
     <div>
       <img src="assets/volt-padel-logo-dark.png" alt="Volt Padel" width="482" height="140">
       <p>Official distributor of Volt Padel in Thailand and Southeast Asia.</p>
-      <p>Sterling Padel Bangkok, Sukhumvit Soi 24, Bangkok</p>
+      <p>Bangkok, Thailand</p>
     </div>
     <div>
       <h2>Contact</h2>
       <ul>
-        <li><a data-wa href="https://wa.me/34696814841" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg>+34 696 814 841</a></li>
-        <li><a href="https://www.instagram.com/javipadelbalance/" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#instagram-logo"/></svg>@javipadelbalance</a></li>
+        <li><a data-wa href="#" target="_blank" rel="noopener"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg>WhatsApp</a></li>
       </ul>
     </div>
     <div>
@@ -432,43 +439,46 @@
 
   <div class="bar" id="bar" aria-hidden="true">
     <div class="bar-copy" id="bar-copy"><b>Volt Padel</b><span>Free delivery in Bangkok</span></div>
-    <a class="btn btn-volt" id="bar-btn" data-wa href="https://wa.me/34696814841" target="_blank" rel="noopener" tabindex="-1"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg><span>Message Javi</span></a>
+    <a class="btn btn-volt" id="bar-btn" data-wa href="#" target="_blank" rel="noopener" tabindex="-1"><svg class="i" aria-hidden="true"><use href="#whatsapp-logo"/></svg><span>Contact us</span></a>
   </div>
 
   <script>
     document.documentElement.classList.add("js");
 
     // ---- Config: edit here --------------------------------------------------
+    // WhatsApp number (digits only). Every WhatsApp link on the page uses it.
     var WHATSAPP = "34696814841";
     // Prices must match CLAUDE.md. Specs from the official voltpadel.com v5 pages.
     // Order runs from low to high balance, matching the lineup axis.
+    // buy: checkout URL for each racket. Empty until the payment setup is decided (docs/payment-options.md).
+    // specs: [label, short value on the drawing, full value in the table]
     var RACKETS = [
-      { id: "V500", model: "500", type: "Control", shape: "Round", thb: 9500, img: "assets/v500.png",
+      { id: "V500", model: "500", type: "Control", shape: "Round", thb: 9500, img: "assets/v500.png", buy: "",
         title: "Total control, total confidence.",
         desc: "A classic round shape for players who value consistency and smart shot selection. Smooth feel, solid stability.",
-        parts: [["Shape", "Round"], ["Faces", "3K twill carbon"], ["Core", "Black Comfort EVA, 38mm profile"], ["Balance", "Low"]],
+        specs: [["Shape", "Round", "Round"], ["Faces", "3K carbon", "3K twill carbon"], ["Core", "Comfort EVA", "Black Comfort EVA, 38mm profile"], ["Balance", "Low", "Low"]],
         weight: "345-365 g",
-        view: { img: "assets/c/v500-45.png", title: "45° view", text: "Round head, white grip." } },
-      { id: "V600", model: "600", type: "Control", shape: "Round", thb: 12500, img: "assets/v600.png",
+        photos: [["assets/gallery/v500-45.png", "45° view"], ["assets/gallery/v500-heart.png", "Heart"], ["assets/gallery/v500-side.png", "Frame"]] },
+      { id: "V600", model: "600", type: "Control", shape: "Round", thb: 12500, img: "assets/v600.png", buy: "",
         title: "Volt's control icon, new generation.",
         desc: "Successor to the Volt 800. A round racket built for control and precision, with more power than you'd expect when you attack.",
-        parts: [["Shape", "Round"], ["Faces", "12K aluminized carbon"], ["Core", "Black EVA, 38mm profile"], ["Balance", "Medium-low"]],
+        specs: [["Shape", "Round", "Round"], ["Faces", "12K carbon", "12K aluminized carbon"], ["Core", "Black EVA", "Black EVA, 38mm profile"], ["Balance", "Medium-low", "Medium-low"]],
         weight: "350-370 g",
-        view: { img: "assets/c/v600-side.png", title: "Side view", text: "The 38mm profile and 3D high-relief face." } },
-      { id: "V1000", model: "1000", type: "Power", shape: "Diamond", thb: 13500, img: "assets/v1000.png",
+        photos: [["assets/gallery/v600-45.png", "45° view"], ["assets/gallery/v600-heart.png", "Heart"], ["assets/gallery/v600-side.png", "Frame"]] },
+      { id: "V1000", model: "1000", type: "Power", shape: "Diamond", thb: 13500, img: "assets/v1000.png", buy: "",
         title: "Pure power, redefined.",
         desc: "For players who finish the point. A bold diamond shape and advanced weight distribution for explosive power with precision.",
-        parts: [["Shape", "Diamond"], ["Faces", "24K silver aluminized carbon"], ["Core", "Black EVA, 38mm profile"], ["Balance", "High"]],
+        specs: [["Shape", "Diamond", "Diamond"], ["Faces", "24K carbon", "24K silver aluminized carbon"], ["Core", "Black EVA", "Black EVA, 38mm profile"], ["Balance", "High", "High"]],
         weight: "350-370 g",
-        view: { img: "assets/c/v1000-face.png", title: "Detail", text: "Gold lettering on the 24K silver aluminized carbon face." } }
+        photos: [["assets/gallery/v1000-45.png", "45° view"], ["assets/gallery/v1000-heart.png", "Heart"], ["assets/gallery/v1000-side.png", "Frame"]] }
     ];
-    // Balloon (b) and target point (p) for each item number, in the 750x750 image space.
+    // Label side, label line height (y) and target point (p) for each spec, in the 750x750 image space.
     // Points were measured from the official front images (racket spans x 213-538, y 77-655).
     var CALLOUTS = [
-      { b: [655, 128], p: [533, 205] },  // 1 shape: head edge
-      { b: [95, 128], p: [300, 205] },   // 2 faces: striking face
-      { b: [95, 330], p: [221, 300] },   // 3 core: frame edge
-      { b: [655, 470], p: [376, 452] }   // 4 balance: throat
+      { side: "r", y: 150, p: [533, 205] },  // shape: head edge
+      { side: "l", y: 150, p: [300, 205] },  // faces: striking face
+      { side: "l", y: 400, p: [221, 300] },  // core: frame edge
+      { side: "r", y: 520, p: [376, 452] }   // balance: throat
     ];
     // -------------------------------------------------------------------------
 
@@ -488,10 +498,13 @@
     }
     var REF = getRef();
     function waLink(msg) { if (REF) msg += "\n\nCoach code: " + REF; return "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(msg); }
-    function orderLink(r) { return waLink("Hi Javi! I'd like to order the Volt " + r.id + " (" + r.type + ", " + r.shape + "), " + thb(r.thb) + ". Is it available?"); }
-    var GENERIC = "Hi Javi! I'm interested in a Volt Padel racket. Can you help me choose?";
+    function orderLink(r) { return waLink("Hi! I'd like to order the Volt " + r.id + " (" + r.type + ", " + r.shape + "), " + thb(r.thb) + ". Is it available?"); }
+    var GENERIC = "Hi! I'm interested in a Volt Padel racket. Can you help me choose?";
     function icon(id) { return '<svg class="i" aria-hidden="true"><use href="#' + id + '"/></svg>'; }
     function lineupImg(r, lazy) { return '<span class="lu-img"><img src="' + r.img + '" alt="" width="750" height="750"' + (lazy ? ' loading="lazy"' : '') + '></span>'; }
+    // Buy: goes to the racket's checkout once one exists; until then it opens a short note in the buy box.
+    function buyHref(r) { return r.buy || "#buy-" + r.id.toLowerCase(); }
+    function buyAttrs(r) { return r.buy ? ' target="_blank" rel="noopener"' : ' data-buy="' + r.id + '"'; }
 
     // Lineup
     document.getElementById("lineup").innerHTML = RACKETS.map(function (r, k) {
@@ -503,32 +516,78 @@
     // Sheets
     document.getElementById("sheets").innerHTML = RACKETS.map(function (r) {
       var leaders = CALLOUTS.map(function (c, k) {
-        return '<path pathLength="1" style="--k:' + k + '" d="M' + c.b[0] + ' ' + c.b[1] + 'L' + c.p[0] + ' ' + c.p[1] + '"/><circle style="--k:' + k + '" cx="' + c.p[0] + '" cy="' + c.p[1] + '" r="5"/>';
+        var x0 = c.side === "l" ? 8 : 742, x1 = c.side === "l" ? 205 : 545;
+        return '<path pathLength="1" style="--k:' + k + '" d="M' + x0 + ' ' + c.y + 'H' + x1 + 'L' + c.p[0] + ' ' + c.p[1] + '"/><circle style="--k:' + k + '" cx="' + c.p[0] + '" cy="' + c.p[1] + '" r="5"/>';
       }).join("");
-      var balloons = CALLOUTS.map(function (c, k) {
-        return '<span class="bal" aria-hidden="true" style="--x:' + (c.b[0] / 7.5) + ';--y:' + (c.b[1] / 7.5) + ';--k:' + k + '">' + (k + 1) + '</span>';
+      var labels = CALLOUTS.map(function (c, k) {
+        return '<span class="lbl ' + c.side + '" style="--y:' + (c.y / 7.5) + ';--k:' + k + '"><b>' + r.specs[k][0] + '</b><span>' + r.specs[k][1] + '</span></span>';
+      }).join("");
+      var slides = [[r.img, "Front view"]].concat(r.photos);
+      var photos = r.photos.map(function (ph) {
+        return '<figure class="slide"><img src="' + ph[0] + '" alt="Volt ' + r.id + ' v5, ' + ph[1].toLowerCase() + '" width="750" height="750" loading="lazy" draggable="false"></figure>';
       }).join("");
       return '<article class="sheet" id="' + r.id.toLowerCase() + '" data-id="' + r.id + '" aria-labelledby="h-' + r.id + '">' +
         '<div class="sheet-grid">' +
-          '<div class="drawing"><img src="' + r.img + '" alt="Volt ' + r.id + ' v5 padel racket, front view" width="750" height="750" loading="lazy">' +
-            '<svg class="leaders" viewBox="0 0 750 750" aria-hidden="true">' + leaders + '</svg>' + balloons + '</div>' +
+          '<div class="gal" data-caps="' + slides.map(function (s) { return s[1]; }).join("|") + '">' +
+            '<div class="gal-track" role="region" aria-label="Volt ' + r.id + ' photos" tabindex="0">' +
+              '<figure class="slide"><img src="' + r.img + '" alt="Volt ' + r.id + ' v5 padel racket, front view" width="750" height="750" loading="lazy" draggable="false">' +
+                '<svg class="leaders" viewBox="0 0 750 750" aria-hidden="true">' + leaders + '</svg>' + labels + '</figure>' +
+              photos +
+            '</div>' +
+            '<div class="gal-nav"><span class="gal-cap" aria-live="polite"></span>' +
+              '<button type="button" class="arrow" data-step="-1" aria-label="Previous photo">' + icon("caret-left") + '</button>' +
+              '<span class="dots">' + slides.map(function (s, k) { return '<button type="button" class="dot" data-go="' + k + '" aria-label="' + s[1] + '"></button>'; }).join("") + '</span>' +
+              '<button type="button" class="arrow" data-step="1" aria-label="Next photo">' + icon("caret-right") + '</button>' +
+            '</div>' +
+          '</div>' +
           '<div class="sheet-side">' +
             '<h3 class="sheet-model" id="h-' + r.id + '"><span class="sr-only">Volt </span>' + r.id + '<span class="match-flag">Your match</span></h3>' +
             '<p class="sheet-line">' + r.type + ' · ' + r.shape + '</p>' +
             '<p class="sheet-title">' + r.title + '</p><p class="sheet-desc">' + r.desc + '</p>' +
-            '<ol class="parts">' + r.parts.map(function (p, k) {
-              return '<li><span class="n" aria-hidden="true">' + (k + 1) + '</span><span class="k">' + p[0] + '</span><span class="v">' + p[1] + '</span></li>';
-            }).join("") + '</ol>' +
-            '<figure class="view"><img src="' + r.view.img + '" alt="Volt ' + r.id + ', ' + r.view.title.toLowerCase() + '" width="750" height="750" loading="lazy"><figcaption><b>' + r.view.title + '</b>' + r.view.text + '</figcaption></figure>' +
-            '<div class="tb"><dl>' +
+            '<div class="tb" id="buy-' + r.id.toLowerCase() + '"><dl>' +
               '<dt>Model</dt><dd>Volt ' + r.id + ' v5</dd>' +
+              r.specs.map(function (s) { return '<dt>' + s[0] + '</dt><dd>' + s[2] + '</dd>'; }).join("") +
               '<dt>Weight</dt><dd class="num">' + r.weight + '</dd>' +
               '<dt>Includes</dt><dd>Import costs, delivery in Bangkok, cover and protector</dd>' +
               '<dt class="price-k">Price</dt><dd class="price-v num">' + thb(r.thb) + '</dd>' +
-            '</dl><a class="btn btn-ink" href="' + orderLink(r) + '" target="_blank" rel="noopener">' + icon("whatsapp-logo") + 'Order ' + r.id + '</a></div>' +
+            '</dl><a class="btn btn-ink" href="' + buyHref(r) + '"' + buyAttrs(r) + '>Buy ' + r.id + '</a>' +
+            '<p class="buy-note" hidden>Online checkout is coming soon. To order the ' + r.id + ' now, <a href="' + orderLink(r) + '" target="_blank" rel="noopener">message us on WhatsApp</a>.</p></div>' +
+            '<a class="help" data-wa href="#" target="_blank" rel="noopener">' + icon("whatsapp-logo") + 'Need help choosing? Message us on WhatsApp</a>' +
           '</div>' +
         '</div></article>';
     }).join("");
+
+    // Galleries: swipe, dots or arrows; caption follows the slide in view
+    document.querySelectorAll(".gal").forEach(function (g) {
+      var track = g.querySelector(".gal-track"), caps = g.dataset.caps.split("|"), cap = g.querySelector(".gal-cap");
+      var dots = g.querySelectorAll(".dot"), prev = g.querySelector('[data-step="-1"]'), next = g.querySelector('[data-step="1"]'), at = -1;
+      function sync() {
+        var i = Math.round(track.scrollLeft / track.clientWidth) || 0;
+        if (i === at) return; at = i;
+        dots.forEach(function (d, k) { d.setAttribute("aria-current", k === i ? "true" : "false"); });
+        cap.innerHTML = '<span class="num">' + (i + 1) + '/' + caps.length + '</span>' + caps[i];
+        prev.disabled = i === 0; next.disabled = i === caps.length - 1;
+      }
+      function go(i) { track.scrollTo({ left: i * track.clientWidth }); }
+      track.addEventListener("scroll", sync, { passive: true });
+      dots.forEach(function (d) { d.addEventListener("click", function () { go(+d.dataset.go); }); });
+      [prev, next].forEach(function (b) { b.addEventListener("click", function () { go(at + +b.dataset.step); }); });
+      track.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight" || e.key === "ArrowLeft") { e.preventDefault(); go(Math.max(0, Math.min(caps.length - 1, at + (e.key === "ArrowRight" ? 1 : -1)))); }
+      });
+      sync();
+    });
+
+    // Buy placeholders: open the note in that racket's buy box
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("[data-buy]");
+      if (!a) return;
+      e.preventDefault();
+      var box = document.getElementById("buy-" + a.dataset.buy.toLowerCase()), note = box.querySelector(".buy-note");
+      note.hidden = false;
+      var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      box.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
+    });
 
     // Generic WhatsApp links
     document.querySelectorAll("[data-wa]").forEach(function (a) { a.href = waLink(a.getAttribute("data-wa-msg") || GENERIC); });
@@ -542,8 +601,8 @@
     function choose(id) {
       var r = byId[id];
       result.innerHTML = lineupImg(r, false) + '<div><h3>' + r.id + '</h3><p>' + r.type + ', ' + r.shape.toLowerCase() + '. <span class="num">' + thb(r.thb) + '</span>, delivered in Bangkok.</p>' +
-        '<div class="row"><a class="btn btn-volt" href="' + orderLink(r) + '" target="_blank" rel="noopener">' + icon("whatsapp-logo") + 'Order ' + r.id + '</a>' +
-        '<a class="btn btn-line" href="#' + r.id.toLowerCase() + '">See the sheet</a></div></div>';
+        '<div class="row"><a class="btn btn-volt" href="' + buyHref(r) + '"' + buyAttrs(r) + '>Buy ' + r.id + '</a>' +
+        '<a class="btn btn-line" href="#' + r.id.toLowerCase() + '">See details</a></div></div>';
       result.hidden = false; reset.hidden = false;
       var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
       requestAnimationFrame(function () { result.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" }); });
@@ -584,8 +643,10 @@
         bar.classList.add("is-swap");
         setTimeout(function () {
           barCopy.innerHTML = r ? "<b>" + r.id + "</b><span class=\"num\">" + thb(r.thb) + ", free Bangkok delivery</span>" : "<b>Volt Padel</b><span>Free delivery in Bangkok</span>";
-          barBtn.href = r ? orderLink(r) : waLink(GENERIC);
-          barBtn.lastElementChild.textContent = r ? "Order " + r.id : "Message Javi";
+          // Racket in view: its Buy action. Otherwise: contact on WhatsApp.
+          barBtn.href = r ? buyHref(r) : waLink(GENERIC);
+          if (r && !r.buy) { barBtn.dataset.buy = r.id; barBtn.removeAttribute("target"); } else { delete barBtn.dataset.buy; barBtn.target = "_blank"; }
+          barBtn.innerHTML = r ? "<span>Buy " + r.id + "</span>" : icon("whatsapp-logo") + "<span>Contact us</span>";
           bar.classList.remove("is-swap");
         }, 140);
       }
