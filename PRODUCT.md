@@ -16,18 +16,19 @@ Padel players in Thailand, mostly Bangkok: expats and Thai players at club level
 
 ## Product Purpose
 
-Direct sales channel for Volt Padel rackets in Thailand and Southeast Asia, run by Javi Tortajada, the exclusive distributor. Visitors choose a racket and start a WhatsApp conversation. Javi confirms, takes payment and arranges delivery. Success is a WhatsApp message with the model already named.
+Direct sales channel for Volt Padel rackets in Thailand and Southeast Asia, presented as Volt Padel Thailand, the official distributor (run by Javi Tortajada, who is not named on the site). Visitors choose a racket and start a WhatsApp conversation; Javi handles it personally there, confirms, takes payment and arranges delivery. Success is a WhatsApp message with the model already named.
 
 ## Positioning
 
-The only local source of Volt Padel, a premium Portuguese brand, in Thailand. A real person who plays padel answers on WhatsApp, with free Bangkok delivery and demo rackets to try at Sterling Padel Bangkok (Sukhumvit Soi 24). Priced below the competitor reference (quad-sports.com top model at ฿16,669).
+The only local source of Volt Padel, a premium Portuguese brand, in Thailand. Direct WhatsApp ordering with a Volt catalogue, free Bangkok delivery, and trials arranged privately on request. Priced below the competitor reference (quad-sports.com top model at ฿16,669).
 
 ## Operating Context
 
 - Ordering: WhatsApp only (+34 696 814 841). No cart, no checkout, no online payment.
 - Payment: bank transfer or PromptPay to Javi's personal account. There is no registered company.
 - Delivery: Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted per order.
-- Demo rackets available at Sterling Padel Bangkok.
+- Trying a racket: arranged privately on WhatsApp on request. No venue is named on the site.
+- Sterling Padel Bangkok is Javi's base but must never appear on the site (sales there go through another channel with lower commission).
 
 ## Capabilities and Constraints
 
@@ -39,14 +40,14 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. A 
 
 ## Brand Commitments
 
-- Public identity is Volt Padel Thailand, the official Volt distributor in Thailand. No personal names or one-person framing anywhere customer-facing; neutral CTAs ("Message us", "Order on WhatsApp"). The contact number lives in one config value so it can be swapped for a business number.
+- Two layers: the website is Volt Padel Thailand (no personal names, no story built around a person, neutral CTAs such as "Message us on WhatsApp"); WhatsApp is where Javi handles customers personally with the Volt catalogue. No Sterling, no visible +34 number, no personal Instagram on the site. The WhatsApp destination lives in one config value.
 - The brand is VOLT (never "Bolt"). Tagline "Unleash the tension" and the "Choose your voltage" phrase come from Volt's own site.
 - Look must stay close to voltpadel.com: white/light backgrounds (no dark or black page backgrounds), Volt yellow `hsl(54,100%,49%)`, black ink, DIN-style condensed uppercase headings.
 - Official Volt logo and v5 racket images in `assets/` (downloaded from voltpadel.com).
 
 ## Evidence on Hand
 
-- Real: official racket images and specs, the logo, prices, delivery terms, location, contact.
+- Real: official racket images and specs, the logo, prices, delivery terms, WhatsApp contact.
 - Absent (do not fabricate): testimonials, sales numbers, player endorsements, ratings, press, founding year.
 
 ## Product Principles
