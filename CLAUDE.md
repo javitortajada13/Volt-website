@@ -10,8 +10,8 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 
 - Territory: Thailand (primary); ships to Singapore, Malaysia and Vietnam.
 - Javi is based at Sterling Padel Bangkok (Sukhumvit Soi 24). Internal fact only: **Sterling must never appear on the public site** (see Public identity).
-- Sales model: no online payment. The customer browses, messages on WhatsApp, and Javi confirms and arranges delivery.
-- Payment: bank transfer or PromptPay to Javi's **personal** account. There is no registered company, so the site must never mention invoices, VAT/tax receipts or a company name ("Co., Ltd" etc.).
+- Sales model (target): the website is a complete sales channel of its own. A customer should be able to choose a racket and pay on the site without being pushed into WhatsApp. WhatsApp is a separate, complementary channel for questions, advice and people who prefer to buy by chat.
+- Payment architecture: **undecided**. See `docs/payment-options.md`. Don't implement any payment system until Javi chooses one. Today Javi takes bank transfer or PromptPay to his **personal** account; there is no registered company, so the site must never mention invoices, VAT/tax receipts or a company name ("Co., Ltd" etc.).
 - Delivery times (confirmed): Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted case by case.
 - Status: not published yet. Don't set up the domain or deploy until Javi says so.
 - WhatsApp: +34 696 814 841 (`wa.me/34696814841`), Javi's current WhatsApp, where he has the Volt product catalogue set up and talks to customers directly. May be replaced later by a dedicated Volt business number or profile.
@@ -19,16 +19,17 @@ Landing page and sales channel for **Volt Padel Thailand**. Javi Tortajada is th
 
 ## Public identity (requirement for the final site)
 
-Two layers, deliberately separate (the same model as André's padelbangkok.com):
+Two channels, deliberately separate:
 
-- **Website = Volt Padel Thailand.** The site presents the brand: the official Volt distributor in Thailand. It is not "Javi's Volt business" and is not built around a person.
-- **WhatsApp = the sales conversation.** Every CTA leads to WhatsApp, currently Javi's own account with the Volt catalogue, where Javi handles the customer personally. That is fine: once the customer is in WhatsApp, talking to Javi is expected.
+- **Website = Volt Padel Thailand**, potentially a full ecommerce channel with its own checkout. It presents the brand, the official Volt distributor in Thailand. It is not "Javi's Volt business" and is not built around a person.
+- **WhatsApp Business = a complementary Volt sales and support channel, handled by Javi personally**, with the Volt product catalogue. It can link to the website, but it is not the website's checkout. Once a customer is in WhatsApp, talking to Javi is expected.
+- **André** (padelbangkok.com, WhatsApp Business "Andre Padel Coach" with a catalogue and cart) is the reference for how to set up the WhatsApp Business presence, **not** for the website's payment flow.
 
 On the website:
 
 - No personal names (no "Javi") in copy, CTAs, alt text or meta tags, and no brand story built around a person ("a real person who plays padel", "one person", "the distributor, Javi"). Write as the business: "we", "us", "Volt Padel Thailand".
-- CTAs are brand-neutral: "Message us on WhatsApp", "Order on WhatsApp", "Contact us", "Order V600" and similar. Never "Message Javi".
-- Payment copy: bank transfer or PromptPay; details are sent on WhatsApp once the order is confirmed. Don't say whose account it is.
+- CTAs are brand-neutral. Buying and getting help are separate intents: a racket's buy button leads to the website's checkout once one exists ("Buy V600"); help leads to WhatsApp ("Need help choosing? Message us on WhatsApp", "Contact us"). Until checkout exists, the existing WhatsApp order buttons stay. Never "Message Javi".
+- Payment copy must match whatever payment architecture is chosen. It never says whose account receives the money.
 - **Sterling Padel Bangkok never appears on the site**: no address, no pickup point, no demo rackets there, no "based at". Sales must go through the website and WhatsApp flow (a sale through Sterling pays Javi much less commission). If someone asks to try a racket, that is arranged privately on WhatsApp; the site may say "Want to try one first? Message us on WhatsApp" without naming a place.
 - Don't show the +34 number as visible page content. Buttons and links still point to it behind the scenes.
 - Don't link @javipadelbalance. Leave Instagram out until a Volt Thailand account exists.
@@ -72,6 +73,7 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
 - `README.md`: local preview and deployment steps.
 - `index-b.html`: bold alternative design (Portuguese tile façade) for comparison. Not linked from the site. Once Javi picks a version, delete the other file before publishing.
 - `index-c.html`: third direction (technical drawing sheet) for comparison. Uses `assets/c/` for self-hosted Barlow fonts and official Volt detail photos. Not linked from the site.
+- `docs/payment-options.md`: research on payment architecture (gateways, PromptPay, settlement, requirements). No option chosen yet.
 - `PRODUCT.md`, `.impeccable/`: product facts and design notes used by the design tooling.
 
 ## Commands
@@ -93,7 +95,7 @@ Prices are in Thai baht only. They are higher than voltpadel.com's euro prices b
 ## What NOT to do
 
 - No dark or black page backgrounds.
-- No online payment, cart or checkout. WhatsApp only for now.
+- Don't implement payments, a cart or a checkout until the payment architecture is decided (`docs/payment-options.md`). Don't assume WhatsApp is the checkout.
 - The brand is VOLT, never "Bolt".
 - Never invent prices. Use the table above.
 - Show prices in Thai baht (฿) only. No euro prices or conversions.

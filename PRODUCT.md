@@ -16,7 +16,7 @@ Padel players in Thailand, mostly Bangkok: expats and Thai players at club level
 
 ## Product Purpose
 
-Direct sales channel for Volt Padel rackets in Thailand and Southeast Asia, presented as Volt Padel Thailand, the official distributor (run by Javi Tortajada, who is not named on the site). Visitors choose a racket and start a WhatsApp conversation; Javi handles it personally there, confirms, takes payment and arranges delivery. Success is a WhatsApp message with the model already named.
+Direct sales channel for Volt Padel rackets in Thailand and Southeast Asia, presented as Volt Padel Thailand, the official distributor (run by Javi Tortajada, who is not named on the site). Target: visitors discover, compare, choose and pay on the website (payment architecture still undecided). WhatsApp Business is a separate complementary channel where Javi advises and sells personally. Success is a completed purchase, on the site or through WhatsApp.
 
 ## Positioning
 
@@ -24,7 +24,7 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. Di
 
 ## Operating Context
 
-- Ordering: WhatsApp only (+34 696 814 841). No cart, no checkout, no online payment.
+- Ordering today: WhatsApp (+34 696 814 841). Target: checkout on the website; WhatsApp stays as a complementary channel. Payment options are compared in docs/payment-options.md; nothing implemented yet.
 - Payment: bank transfer or PromptPay to Javi's personal account. There is no registered company.
 - Delivery: Bangkok 1–2 days (free), rest of Thailand 2–4 working days, SEA quoted per order.
 - Trying a racket: arranged privately on WhatsApp on request. No venue is named on the site.
@@ -40,7 +40,7 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. Di
 
 ## Brand Commitments
 
-- Two layers: the website is Volt Padel Thailand (no personal names, no story built around a person, neutral CTAs such as "Message us on WhatsApp"); WhatsApp is where Javi handles customers personally with the Volt catalogue. No Sterling, no visible +34 number, no personal Instagram on the site. The WhatsApp destination lives in one config value.
+- Two channels: the website is Volt Padel Thailand, potentially full ecommerce (no personal names, no story built around a person, neutral CTAs); WhatsApp Business is a complementary channel where Javi handles customers personally with the Volt catalogue. André's WhatsApp is the reference for that channel only, not for the website's payment flow. No Sterling, no visible +34 number, no personal Instagram on the site. The WhatsApp destination lives in one config value.
 - The brand is VOLT (never "Bolt"). Tagline "Unleash the tension" and the "Choose your voltage" phrase come from Volt's own site.
 - Look must stay close to voltpadel.com: white/light backgrounds (no dark or black page backgrounds), Volt yellow `hsl(54,100%,49%)`, black ink, DIN-style condensed uppercase headings.
 - Official Volt logo and v5 racket images in `assets/` (downloaded from voltpadel.com).
@@ -52,7 +52,7 @@ The only local source of Volt Padel, a premium Portuguese brand, in Thailand. Di
 
 ## Product Principles
 
-1. Every path ends in one WhatsApp tap with the racket already named.
+1. Every racket has one clear buy path, and help is always one WhatsApp tap away. Buying and asking are separate actions.
 2. Trust before persuasion: official distributor, direct WhatsApp contact, clear terms, no surprises at payment. The brand speaks, not an individual.
 3. Look like Volt. A customer comparing with voltpadel.com or Instagram should see the same brand.
 4. Phone first. Most visitors arrive from Instagram or the club on a phone.
